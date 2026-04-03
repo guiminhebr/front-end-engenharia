@@ -30,6 +30,8 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css",
               "src/styles.scss"
             ]
           },
@@ -94,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1ceef473-7561-4d0e-91b8-ba453d61b6b8"
   }
 }

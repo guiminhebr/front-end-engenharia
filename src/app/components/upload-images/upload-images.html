@@ -1,0 +1,47 @@
+<!-- Progress bars -->
+@for (progressInfo of progressInfos; track progressInfo.fileName) {
+  <div class="mb-2">
+    <span>{{ progressInfo.fileName }}</span>
+    <div class="progress">
+      <div
+        class="progress-bar progress-bar-info progress-bar-striped"
+        role="progressbar"
+        [attr.aria-valuenow]="progressInfo.percentage"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [ngStyle]="{ width: progressInfo.percentage + '%' }"
+      >
+        {{ progressInfo.percentage }}%
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Input de arquivo -->
+<label class="btn btn-default">
+  <input type="file" accept="image/*" multiple (change)="selectFiles($event)" />
+</label>
+
+<!-- Botão upload -->
+<button
+  class="btn btn-success"
+  [disabled]="!selectedFiles"
+  (click)="uploadFiles()"
+>
+  Upload
+</button>
+
+<div class="alert alert-light" role="alert">{{ message }}</div>
+
+<!-- Lista de imagens -->
+<div class="card">
+  <div class="card-header">List of Images</div>
+  <ul class="list-group list-group-flush">
+    @for (file of (fileInfos | async) ?? []; track file.name) {
+      <li class="list-group-item">
+        <p><a href="{{ file.url }}">{{ file.name }}</a></p>
+        <img src="{{ file.url }}" alt="{{ file.name }}" height="80px">
+      </li>
+    }
+  </ul>
+</div>

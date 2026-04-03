@@ -1,0 +1,46 @@
+
+
+   <h3>Lista de Intervalos</h3> 
+
+<div class="d-flex justify-content-center mt-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Número da OS</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fim</th>
+        <th>Sigla do Intervalo</th>
+        <th>Km Inicial</th>
+        <th>Km Final</th>
+        <th>Trecho</th>
+        <th>Observação</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for(i of lista; track $index){
+        <tr>
+          <td>{{i.status}}</td>
+        <td>{{i.numeroOs}}</td>
+        <td>{{i.inicio}}</td>
+        <td>{{i.fim}}</td>
+        <td>{{i.tipoIntervalo}}</td>
+        <td>{{i.kmInicial}}</td>
+        <td>{{i.kmFinal}}</td>
+        <td>{{i.trecho}}</td>
+        <td>{{i.observacao}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" mdbRipple (click)="delete(i)">Deletar Intervalo</button>
+         
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" mdbRipple (click)="edit(i.id!)">Atualizar Intervalo</button>
+        </td>
+      </tr>
+    }
+      
+    </tbody>
+  </table>
+</div>
+
