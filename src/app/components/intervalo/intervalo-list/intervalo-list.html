@@ -1,46 +1,161 @@
+<style>
+/* FUNDO GLOBAL (engenharia / blueprint) */
+body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* Grid técnico */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
 
-   <h3>Lista de Intervalos</h3> 
+/* Container */
+.table-container {
+  padding: 30px;
+}
 
-<div class="d-flex justify-content-center mt-4">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Status</th>
-        <th>Número da OS</th>
-        <th>Hora Inicio</th>
-        <th>Hora Fim</th>
-        <th>Sigla do Intervalo</th>
-        <th>Km Inicial</th>
-        <th>Km Final</th>
-        <th>Trecho</th>
-        <th>Observação</th>
-      </tr>
-    </thead>
+/* Título */
+.table-title {
+  color: #00bcd4;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
-    <tbody>
-      @for(i of lista; track $index){
-        <tr>
-          <td>{{i.status}}</td>
-        <td>{{i.numeroOs}}</td>
-        <td>{{i.inicio}}</td>
-        <td>{{i.fim}}</td>
-        <td>{{i.tipoIntervalo}}</td>
-        <td>{{i.kmInicial}}</td>
-        <td>{{i.kmFinal}}</td>
-        <td>{{i.trecho}}</td>
-        <td>{{i.observacao}}</td>
-        <td>
-          <button type="button" class="btn btn-primary" mdbRipple (click)="delete(i)">Deletar Intervalo</button>
-         
-        </td>
-        <td>
-          <button type="button" class="btn btn-primary" mdbRipple (click)="edit(i.id!)">Atualizar Intervalo</button>
-        </td>
-      </tr>
-    }
-      
-    </tbody>
-  </table>
+/* Card wrapper (novo) */
+.table-wrapper {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Tabela */
+.table {
+  background: transparent;
+  color: #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+.table thead {
+  background: linear-gradient(90deg, #020617, #1e293b);
+}
+
+.table thead th {
+  border: none;
+  padding: 14px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* Linhas */
+.table tbody tr {
+  transition: 0.3s;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(0, 188, 212, 0.08);
+  transform: scale(1.01);
+}
+
+/* Células */
+.table td {
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Botões */
+.btn-modern {
+  background: #00bcd4;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: white;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.btn-modern:hover {
+  background: #0097a7;
+  transform: translateY(-1px);
+}
+
+.btn-danger-modern {
+  background: #ef4444;
+}
+
+.btn-danger-modern:hover {
+  background: #dc2626;
+}
+
+/* Responsivo */
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+}
+</style>
+
+<div class="table-container">
+  <h3 class="table-title">Lista de Intervalos</h3> 
+
+  <div class="table-wrapper">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Número da OS</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fim</th>
+            <th>Sigla do Intervalo</th>
+            <th>Km Inicial</th>
+            <th>Km Final</th>
+            <th>Trecho</th>
+            <th>Observação</th>
+            <th>Ações</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for(i of lista; track $index){
+            <tr>
+              <td>{{i.status}}</td>
+              <td>{{i.numeroOs}}</td>
+              <td>{{i.inicio}}</td>
+              <td>{{i.fim}}</td>
+              <td>{{i.tipoIntervalo}}</td>
+              <td>{{i.kmInicial}}</td>
+              <td>{{i.kmFinal}}</td>
+              <td>{{i.trecho}}</td>
+              <td>{{i.observacao}}</td>
+              <td>
+                <button type="button" class="btn-modern btn-danger-modern" mdbRipple (click)="delete(i)">
+                  Deletar
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn-modern" mdbRipple (click)="edit(i.id!)">
+                  Atualizar
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-

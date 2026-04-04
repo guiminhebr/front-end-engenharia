@@ -3,6 +3,7 @@ import { Principal } from './components/layout/principal/principal';
 import { IntervaloList } from './components/intervalo/intervalo-list/intervalo-list';
 import { IntervaloComponent } from './components/intervalo/intervalo-component/intervalo-component';
 import { UploadImages } from './components/upload-images/upload-images';
+import { UploadDocuments } from './components/upload-documents/upload-documents';
 
 export const routes: Routes = [
 
@@ -11,9 +12,11 @@ export const routes: Routes = [
         {path: "intervalos", component: IntervaloList}, 
    {path: "intervalos/new", component: IntervaloComponent},
    {path: "intervalos/edit/:id", component: IntervaloComponent}, 
-   {path: "fotos", component: UploadImages}
+   {path: "fotos", component: UploadImages},
+   
+   {path:'documentos', component: UploadDocuments}
     ]
-    }, 
+    }
    
 	
 

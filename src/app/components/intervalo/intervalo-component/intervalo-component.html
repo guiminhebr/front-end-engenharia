@@ -1,80 +1,110 @@
 <style>
 body {
-  background: linear-gradient(135deg, #1e293b, #0f172a);
+  background: linear-gradient(135deg, #0f172a, #020617);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Container */
 .container {
   margin-top: 60px;
 }
 
-/* Card principal */
+/* Card */
 .card {
   border: none;
   border-radius: 16px;
-  padding: 20px;
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 25px;
+  background: #1e293b;
+  color: #e2e8f0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Título */
 .card-title {
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 25px;
-  color: #1e293b;
+  color: #00bcd4;
+  letter-spacing: 1px;
 }
 
 /* Inputs */
 .form-control {
   border-radius: 10px;
   padding: 10px 12px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
   transition: all 0.2s ease;
 }
 
-/* Efeito ao focar */
+/* Placeholder */
+.form-control::placeholder {
+  color: #64748b;
+}
+
+/* Focus */
 .form-control:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: #00bcd4;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+  background: #020617;
 }
 
 /* Labels */
 .form-label {
-  color: #64748b;
-  font-size: 14px;
+  color: #94a3b8;
+  font-size: 13px;
 }
 
 /* Espaçamento */
 mdb-form-control {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 /* Botão */
 .btn-primary {
   width: 100%;
   border-radius: 10px;
-  padding: 10px;
-  font-weight: 500;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  padding: 12px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
   border: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
 }
 
 /* Hover botão */
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: scale(1.02);
+  background: linear-gradient(135deg, #0097a7, #007c91);
+  transform: translateY(-2px);
 }
 
-/* Responsividade */
+/* Glow leve no botão */
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Grid visual leve (engenharia feel) */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .container {
     margin-top: 20px;
@@ -83,66 +113,66 @@ mdb-form-control {
 </style>
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4"></div>
+  <div class="row justify-content-center">
 
-    <div class="col-lg-4">
+    <div class="col-lg-5 col-md-8">
       <div class="card">
         <div class="card-body">
+
           <h5 class="card-title">Cadastro de Intervalo</h5>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.status" />
+            <input mdbInput type="text" class="form-control" placeholder="Ex: Ativo" [(ngModel)]="intervalo.status" />
             <label mdbLabel class="form-label">Status</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.numeroOs" />
+            <input mdbInput type="text" class="form-control" placeholder="Ex: 12345" [(ngModel)]="intervalo.numeroOs" />
             <label mdbLabel class="form-label">Número da OS</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.inicio" />
+            <input mdbInput type="time" class="form-control" [(ngModel)]="intervalo.inicio" />
             <label mdbLabel class="form-label">Hora Início</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.fim" />
+            <input mdbInput type="time" class="form-control" [(ngModel)]="intervalo.fim" />
             <label mdbLabel class="form-label">Hora Fim</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.tipoIntervalo" />
+            <input mdbInput type="text" class="form-control" placeholder="Ex: INT-A" [(ngModel)]="intervalo.tipoIntervalo" />
             <label mdbLabel class="form-label">Sigla do Intervalo</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.kmInicial" />
+            <input mdbInput type="number" class="form-control" [(ngModel)]="intervalo.kmInicial" />
             <label mdbLabel class="form-label">Km Inicial</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.kmFinal" />
+            <input mdbInput type="number" class="form-control" [(ngModel)]="intervalo.kmFinal" />
             <label mdbLabel class="form-label">Km Final</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.trecho" />
+            <input mdbInput type="text" class="form-control" placeholder="Ex: Trecho Norte" [(ngModel)]="intervalo.trecho" />
             <label mdbLabel class="form-label">Trecho</label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input mdbInput type="text" class="form-control" [(ngModel)]="intervalo.observacao" />
+            <input mdbInput type="text" class="form-control" placeholder="Observações adicionais..." [(ngModel)]="intervalo.observacao" />
             <label mdbLabel class="form-label">Observação</label>
           </mdb-form-control>
 
-          <button type="button" class="btn btn-primary" mdbRipple (click)="save()">
-            Cadastrar
+          <button type="button" class="btn btn-primary mt-2" mdbRipple (click)="save()">
+            Cadastrar Intervalo
           </button>
+
         </div>
       </div>
     </div>
 
-    <div class="col-lg-4"></div>
   </div>
 </div>
