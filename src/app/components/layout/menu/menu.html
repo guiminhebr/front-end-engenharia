@@ -1,19 +1,20 @@
 <style>
   /* Fonte e base */
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
   }
 
   /* Navbar moderna */
   .navbar {
-    background: linear-gradient(90deg, #1e2a38, #2c3e50);
+    background: linear-gradient(90deg, #1B3255, #2c3e50);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     padding: 0.8rem 1.5rem;
+    backdrop-filter: blur(6px);
   }
 
   /* Marca */
   .navbar-brand {
-    color: yellow !important;
+    color: #FFCC00 !important;
     font-weight: bold;
     font-size: 1.3rem;
     letter-spacing: 1px;
@@ -21,7 +22,7 @@
   }
 
   .navbar-brand:hover {
-    color: yellow !important;
+    color: #FFCC00 !important;
     transform: scale(1.05);
   }
 
@@ -42,7 +43,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: yellow;
+    background-color: #FFCC00;
     transition: width 0.3s ease;
   }
 
@@ -51,12 +52,12 @@
   }
 
   .navbar-nav .nav-link:hover {
-    color: yellow !important;
+    color: #FFCC00 !important;
   }
 
   /* Link ativo */
   .navbar-nav .nav-link.active {
-    color: #00bcd4 !important;
+    color: #0093D3 !important;
     font-weight: bold;
   }
 
@@ -72,14 +73,17 @@
     box-shadow: none;
   }
 
-  /* Efeito de vidro leve */
-  .navbar {
-    backdrop-filter: blur(6px);
-  }
-
   /* Disabled */
   .nav-link.disabled {
     opacity: 0.4;
+  }
+
+  /* Onda SVG */
+  .navbar-wave {
+    display: block;
+    width: 100%;
+    margin-top: -2px; /* cola na navbar sem gap */
+    line-height: 0;
   }
 </style>
 
@@ -119,7 +123,7 @@
             Inserir Fotos
           </a>
         </li>
- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="principal/documentos">
             Inserir Documentos
           </a>
@@ -128,3 +132,14 @@
     </div>
   </div>
 </nav>
+
+<!-- Onda SVG -->
+<svg
+  class="navbar-wave"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 680 36"
+  preserveAspectRatio="none"
+>
+  <path d="M0,0 C170,36 510,36 680,0 L680,36 L0,36 Z" fill="#1B3255"/>
+  <path d="M0,0 C170,30 510,30 680,0" fill="none" stroke="#FFCC00" stroke-width="2"/>
+</svg>

@@ -4,6 +4,7 @@ import { IntervaloList } from './components/intervalo/intervalo-list/intervalo-l
 import { IntervaloComponent } from './components/intervalo/intervalo-component/intervalo-component';
 import { UploadImages } from './components/upload-images/upload-images';
 import { UploadDocuments } from './components/upload-documents/upload-documents';
+import { Dashboard } from './components/layout/dashboard/dashboard';
 
 export const routes: Routes = [
 
@@ -16,6 +17,8 @@ export const routes: Routes = [
    
    {path:'documentos', component: UploadDocuments}
     ]
+    }, {
+        path:'dashboard', component: Dashboard
     }
    
 	
