@@ -22,8 +22,8 @@ export class IntervaloComponent {
   inicio: '',
   fim: '',
   tipoIntervalo: '',
-  kmInicial: 0,
-  kmFinal: 0,
+  kmInicial: '',
+  kmFinal: '',
   trecho: '',
   observacao: '',
   data: ''
