@@ -5,8 +5,8 @@ export class IntervaloModel {
   numeroOs: string;
  id?: number;
   trecho: string;
-  kmInicial: number;
-  kmFinal: number;
+  kmInicial: string;
+  kmFinal: string;
 
   data: string;
   inicio: string;
@@ -19,8 +19,8 @@ export class IntervaloModel {
     status: string,
     numeroOs: string,
     trecho: string,
-    kmInicial: number,
-    kmFinal: number,
+    kmInicial: string,
+    kmFinal: string,
     data: string,
     inicio: string,
     fim: string,
