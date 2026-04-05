@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'
 })
 export class UploadFiles {
   
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://back-end-engenharia-production.up.railway.app';
 
   constructor(private http: HttpClient) { }
 

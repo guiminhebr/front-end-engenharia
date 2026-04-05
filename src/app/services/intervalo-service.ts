@@ -9,7 +9,7 @@ import { IntervaloModel } from '../models/intervalo-model';
 export class IntervaloService {
   //injecção do http client
   http = inject(HttpClient);  
-  API = "http://localhost:8080/intervalos"
+  API = "https://back-end-engenharia-production.up.railway.app/intervalos"
 
   //metodd do service qvai sugar os dados do back end
   findAll(): Observable<IntervaloModel[]>{
